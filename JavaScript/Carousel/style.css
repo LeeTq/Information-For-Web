@@ -1,0 +1,78 @@
+/* 图片轮播 div 框 */
+.imageSlider {
+    position: relative;
+    width: 570px;
+	height: 270px;
+	overflow: hidden;
+}
+
+/* 图片 */
+.imageBox {
+    position: absolute;
+    height: 270px;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+.imageBox img {
+    display: block;
+    float: left;
+	height: 270px;
+    width: 570px;
+}
+
+/* 标题 */
+.titleBox {
+    position: absolute;
+    bottom: 0px;
+    width: 570px;
+    height: 40px;
+    overflow: hidden;
+}
+.titleBox p {
+    position: absolute;
+    bottom: -40px;
+    width: 550px;
+    height: 40px;
+    margin: 0px;
+    padding: 0px 10px;
+    line-height: 40px;
+    color: #fff;
+	background-color: #000;
+	font-size: 16px;
+    opacity: 0.6;  /* 透明度 */
+    -moz-opacity: 0.6;
+    -webkit-opacity: 0.6;
+    filter: alpha(opacity=60);
+	z-index: 1;
+}
+.titleBox p.active {
+    bottom: 0px;
+}
+
+/* 图标 */
+.icoBox {
+    position: absolute;
+    bottom: 14px;
+    right: 15px;
+    width: 76px;
+    height: 12px;
+    text-align: center;
+    line-height: 40px;
+    z-index: 10;
+}
+.icoBox span {
+    display: block;
+    float: left;
+    width: 12px;
+	height: 12px;
+    margin-left: 3px;
+	background-color: #fff;
+	border-radius: 50%;
+    cursor: pointer;
+	overflow: hidden;
+}
+.icoBox span.active {
+    background-color: #f66;
+	cursor: default;
+}
