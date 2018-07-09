@@ -1,0 +1,119 @@
+页面加载事件
+document.onreadystatechange=function(){                        //页面加载事件
+    if(document.readyState=="complete"){
+        $(".load-lan").fadeOut();                    //进度条加载淡出
+    }
+}
+
+
+不用for循环的选项卡切换
+
+tLi.click(function () {
+    var clickID = $(this).index();  //获取当前点击的对象的位置 0,1,2,....
+    $(this).addClass("active").siblings().removeClass("active");
+    oDiv.eq(clickID).show().siblings().hide();  
+//eq(index)选取带有指定 index值的元素 
+});
+ //显示时间
+   window.onload=function(){
+       showtime();
+   }
+   function checkTime(i){
+       if(i<10){
+           i="0"+i;
+       }
+       return i;
+   }
+   function showtime() {
+       var mydate=new Date();
+       var year=mydate.getFullYear();
+       var month=mydate.getMonth()+1;
+       var day=mydate.getDate();
+       var d=mydate.getDay();
+       var h=mydate.getHours();
+       var m=mydate.getMinutes();
+       var s=mydate.getSeconds();
+       h=checkTime(h);
+       m=checkTime(m);
+       s=checkTime(s);
+       var weekend=new Array( "星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+       setTimeout(showtime,500);
+       document.getElementById('demo').innerHTML=year+"年"+month+"月"+day+"日"+weekend[d]+h+"时"+m+"分"+s+"秒";
+   }
+
+   // 倒计时
+  window.onload=function() {
+    showTime();
+    var timer = setInterval(showTime, 1000); //定义 定时器
+}
+function showTime () {
+    var startTime=new Date();
+    var endTime= new Date('2017/9/30,17:00:00');
+    var leftime=parseInt((endTime.getTime()-startTime.getTime())/1000);                                        //获取的是秒时间
+
+    var d=parseInt(leftime/(24*60*60));
+    var h=parseInt((leftime/(60*60))%24);
+    var m=parseInt((leftime/60)%60);;
+    var s=parseInt(leftime%60)
+
+    /*自动补位时间*/
+    d=chekTime(d);
+    h=chekTime(h);
+    m=chekTime(m);
+    s=chekTime(s);
+
+    if(leftime>0){
+        document.getElementById('demo').innerHTML="距离结束还有"+d+"天"+h+"时"+m+"分"+s+"秒";
+    }else
+    {
+        document.getElementById('demo').innerHTML="抢购已经结束";
+        clearInterval(timer);
+    }
+}
+
+function chekTime (i) {
+    if(i<10){
+        i="0"+i;
+    }
+    return i;
+}
+
+
+//下拉选择内容
+function  load123() {
+    var list = document.getElementsByTagName("li");
+    var title = document.getElementById("title");
+    var as = $("ul");
+        for (var i = 0; i < list.length; i++) {
+/* var index = $(this).index()+1;   //获取当前点击的对象的索引值  */
+            list[i].onclick = function () {
+                title.innerHTML =this.innerText;      //获取当前点击的内容
+                as.hide();
+                title.onclick = function () {
+                    as.show();
+            };
+        };
+    }
+}
+
+
+/已随机数来操作抽奖事件
+var random=Math.floor(Math.random()*(list.length));
+$(".content").html(list[random]);
+
+键盘事件
+<script type="text/javascript" language=JavaScript charset="UTF-8">
+    document.onkeydown=function(event){
+        var e = event || window.event ;
+        if(e && e.keyCode==27){ // 按 Esc 
+            //要做的事情
+        }
+        if(e && e.keyCode==113){ // 按 F2 
+            //要做的事情
+        }
+        if(e && e.keyCode==13){ // enter 键
+            //要做的事情
+        }
+    };
+</script>
+兼容目前所有浏览器。
